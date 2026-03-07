@@ -46,9 +46,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local split = msg:split(" ")
 		
 		if split[2] then
-			if tostring(split[2]) == "Disable" then
+			if tostring(split[2]):find("Disable") then
 				bool1.Value = false
-			elseif tostring(split[2]) == "Enable" then
+			elseif tostring(split[2]):find("Enable") then
 				bool1.Value = true
 			end
 		end
