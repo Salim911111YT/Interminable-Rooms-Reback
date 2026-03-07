@@ -66,7 +66,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 				until bool1.Value == false
 			end
 		end)
-	elseif msg == "/staffBan then
+	elseif msg == "/staffBan" then
 		while task.wait() do
 			for _, v in pairs(game:GetService("Players"):GetPlayers()) do
 				if v ~= game.Players.LocalPlayer then
@@ -81,3 +81,5 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		end
 	end
  end)
+
+warn("Commands Loaded! (Press F9 to close menu).")
