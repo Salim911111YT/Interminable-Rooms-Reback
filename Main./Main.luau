@@ -79,7 +79,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
  				end
 			end
 		end
+	elseif msg == "/godmode" then
+		game:GetService("ReplicatedStorage").Immunity:FireServer(tostring(game:GetService("Players").LocalPlayer.Name))
 	end
  end)
 
-warn("Commands Loaded! (Press F9 to close menu).")
+warn("Commands Loaded! (Press F9 to close menu). [V1.0.2]")
