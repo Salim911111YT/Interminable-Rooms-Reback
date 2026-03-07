@@ -32,7 +32,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local split = msg:split(" ")
 		
 		if split[2] then
-			game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), "Kicked by admin.")
+			game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(split[2]), "Kicked by admin.")
 		end
 	elseif msg:find("/serverban") then
 		local split = msg:split(" ")
