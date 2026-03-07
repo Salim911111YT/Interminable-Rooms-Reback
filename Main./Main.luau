@@ -11,8 +11,9 @@ end)
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == "/crash" then
-		while true do
+		while task.wait() do
 			game:GetService("ReplicatedStorage").SpawnEntity:FireServer("X-183")
+			task.wait()
 		end
 	elseif msg:find("/spawn") then
 		local split = msg:split(" ")
