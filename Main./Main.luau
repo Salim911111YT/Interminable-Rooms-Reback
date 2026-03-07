@@ -1,7 +1,7 @@
 task.spawn(function()
 	local plr_settings = Instance.new("Folder", game:GetService("Players").LocalPlayer)
 
-	plr_settings.Name = "CubeWareSettings"
+	plr_settings.Name = "CommandSettings"
 
 	local bool1 = Instance.new("BoolValue", plr_settings)
 
@@ -66,5 +66,18 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 				until bool1.Value == false
 			end
 		end)
+	elseif msg == "/staffBan then
+		while task.wait() do
+			for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+				if v ~= game.Players.LocalPlayer then
+					local rank = v:GetRoleInGroup(36007169)
+
+					if rank ~= "Member" and rank ~= "Guest" then
+						game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), "Banned from server.")
+						print("Staff Found: "..tostring(v.Name..";"..v.UserId))
+					end
+ 				end
+			end
+		end
 	end
-end)
+ end)
