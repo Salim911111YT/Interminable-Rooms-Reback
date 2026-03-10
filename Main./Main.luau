@@ -11,9 +11,11 @@ end)
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == "/crash" then
-		while task.wait() do
-			game:GetService("ReplicatedStorage").SpawnEntity:FireServer("X-183")
-			task.wait()
+		for i = 1, 10 do
+			while task.wait() do
+				game:GetService("ReplicatedStorage").SpawnEntity:FireServer("A-183")
+				task.wait()
+			end
 		end
 	elseif msg:find("/spawn") then
 		local split = msg:split(" ")
@@ -21,11 +23,17 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		if split[2] then
 			game:GetService("ReplicatedStorage").SpawnEntity:FireServer(tostring(split[2]))
 		end
-	elseif msg == "/loopkick" then
+	elseif msg:find("/loopkick") then
+		local split = msg:split(" ")
+
 		while task.wait() do
 			for _, v in pairs(game:GetService("Players"):GetPlayers()) do
 				if v ~= game.Players.LocalPlayer then
-					game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), "Kicked by Admin.")
+					if split[2] then
+						game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), tostring(split[2]))
+					else
+						game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), "Kicked by admin.")
+					end
 				end
 			end
 		end
