@@ -90,7 +90,15 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		end
 	elseif msg == "/godmode" then
 		game:GetService("ReplicatedStorage").Immunity:FireServer(tostring(game:GetService("Players").LocalPlayer.Name))
+	elseif msg == "/advertiseLoopKick" or msg == "/addLoopKick" then
+		while task.wait() do
+			for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+				if v ~= game.Players.LocalPlayer then
+					game:GetService("ReplicatedStorage").KickPlayer:FireServer(tostring(v.Name), "#unban salim_911111YT !!! (Spam in their discord).")
+				end
+			end
+		end
 	end
  end)
 
-warn("Commands Loaded! (Press F9 to close menu). [V1.0.2]")
+warn("Commands Loaded! (Press F9 to close menu). [V1.0.2.5]")
